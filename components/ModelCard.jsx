@@ -11,14 +11,14 @@ export default function ModelCard({ title, views, likes, url }) {
 
   return (
     <div
-      className="bg-[#f6f7f9] shadow-md rounded-lg p-4 max-w-sm w-full mx-auto hover:bg-[#f0f1f3] transition duration-300 ease-in-out cursor-pointer"
+      className="bg-[#f6f7f9] shadow-md rounded-lg p-4 max-w-sm w-full mx-auto hover:bg-[#ebece9] transition duration-300 ease-in-out cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
           {/* Assuming you have a way to dynamically select the image based on the url or another prop */}
-          <Image src={google} alt="Logo" className="h-3.5 w-3.5" />
+          <Image src={google} alt="Logo" className="h-5 w-5" />
         </div>
         <p
           className={`text-sm font-medium truncate ${
