@@ -3,17 +3,22 @@
 import Image from "next/image";
 import google from "@/public/google.webp";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 // components/Card.jsx
 // ModelCard.jsx
-export default function ModelCard({ title, views, likes, url }) {
+export default function ModelCard({ id, title, views, likes, url }) {
   const [isHovered, setIsHovered] = useState(false);
+  const router = useRouter();
 
   return (
     <div
       className="bg-[#f6f7f9] shadow-md rounded-lg p-4 max-w-sm w-full mx-auto hover:bg-[#ebece9] transition duration-300 ease-in-out cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => {
+        router.push(`/models/${id}`);
+      }}
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">

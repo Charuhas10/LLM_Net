@@ -6,6 +6,7 @@ export default function ModelCardList({ models }) {
       {models.map((model) => (
         <ModelCard
           key={model.id}
+          id={model.id}
           title={model.title}
           views={model.views}
           likes={model.likes}
