@@ -1,4 +1,9 @@
-import { FaAngleRight, FaAngleDoubleRight, FaAngleLeft, FaAngleDoubleLeft } from 'react-icons/fa';
+import {
+  FaAngleRight,
+  FaAngleDoubleRight,
+  FaAngleLeft,
+  FaAngleDoubleLeft,
+} from "react-icons/fa";
 
 function Pagination({ totalPage, currentPage, paginate }) {
   const pageNumbers = [];
@@ -7,10 +12,12 @@ function Pagination({ totalPage, currentPage, paginate }) {
   }
 
   return (
-    <nav className="flex justify-center items-center mt-4 space-x-4">
+    <nav className="flex justify-center items-center mt-8 space-x-4">
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
-          currentPage === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-200'
+          currentPage === 1
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => paginate(1)}
         disabled={currentPage === 1}
@@ -20,7 +27,9 @@ function Pagination({ totalPage, currentPage, paginate }) {
 
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
-          currentPage === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-200'
+          currentPage === 1
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => paginate(currentPage - 1)}
         disabled={currentPage === 1}
@@ -32,7 +41,7 @@ function Pagination({ totalPage, currentPage, paginate }) {
         <button
           key={number}
           className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
-            currentPage === number ? 'bg-gray-300' : 'hover:bg-gray-200'
+            currentPage === number ? "bg-gray-300" : "hover:bg-gray-200"
           }`}
           onClick={() => paginate(number)}
         >
@@ -42,7 +51,9 @@ function Pagination({ totalPage, currentPage, paginate }) {
 
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
-          currentPage === totalPage ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-200'
+          currentPage === totalPage
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => paginate(currentPage + 1)}
         disabled={currentPage === totalPage}
@@ -52,7 +63,9 @@ function Pagination({ totalPage, currentPage, paginate }) {
 
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
-          currentPage === totalPage ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-200'
+          currentPage === totalPage
+            ? "text-gray-400 cursor-not-allowed"
+            : "text-gray-700 hover:bg-gray-200"
         }`}
         onClick={() => paginate(totalPage)}
         disabled={currentPage === totalPage}

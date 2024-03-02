@@ -5,8 +5,8 @@ export default function ModelsPage({ params }) {
   const { id } = params;
   return (
     <div>
-      <Navbar />
       <ModelPage id={id} />
     </div>
   );
 }
+ 

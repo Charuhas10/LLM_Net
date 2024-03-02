@@ -21,7 +21,7 @@ export default function ModelCardSection() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="mt-16">
+    <div className="mt-12">
       <Filter />
       <ModelCardList models={currentModels} />
       <Pagination
@@ -32,5 +32,3 @@ export default function ModelCardSection() {
     </div>
   );
 }
-
-

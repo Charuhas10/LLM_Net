@@ -12,7 +12,7 @@ function Filter() {
   };
 
   return (
-    <div className="flex justify-between items-center mb-8">
+    <div className="flex justify-between items-center mb-6 mx-[60px]">
       <div className="flex items-center space-x-4">
         <h1 className="text-xl">Models</h1>
         <span className="text-xl text-[#9ca3af]">
@@ -43,11 +43,11 @@ function Filter() {
         </div>
       </div>
       <div className="flex space-x-2">
-        <button className="px-4 py-2 border border-gray-300 rounded-lg bg-white">
+        <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white">
           New
         </button>
-        
-        <button className="px-4 py-2 border border-gray-300 rounded-lg bg-white">
+
+        <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white">
           Sort: Trending
         </button>
       </div>
