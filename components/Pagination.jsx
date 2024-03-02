@@ -7,7 +7,7 @@ function Pagination({ totalPage, currentPage, paginate }) {
   }
 
   return (
-    <nav className="flex justify-center items-center mt-4 space-x-1">
+    <nav className="flex justify-center items-center mt-4 space-x-4">
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 focus:outline-none focus:ring focus:ring-blue-300 ${
           currentPage === 1 ? 'text-gray-400 cursor-not-allowed' : 'text-gray-700 hover:bg-gray-200'

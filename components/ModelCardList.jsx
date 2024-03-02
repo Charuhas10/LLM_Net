@@ -7,10 +7,10 @@ export default function ModelCardList({ models }) {
         <ModelCard
           key={model.id}
           id={model.id}
-          title={model.title}
+          type={model.type}
           views={model.views}
           likes={model.likes}
-          url={model.url}
+          title={model.title}
         />
       ))}
     </div>

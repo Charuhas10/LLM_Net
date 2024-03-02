@@ -4,6 +4,7 @@ import ModelCardList from "@/components/ModelCardList";
 import Pagination from "@/components/Pagination"; // Import the Pagination component
 import models from "@/models";
 import { useState } from "react";
+import Filter from "./Filter";
 
 export default function ModelCardSection() {
   const itemsPerPage = 15;
@@ -21,6 +22,7 @@ export default function ModelCardSection() {
 
   return (
     <div className="mt-16">
+      <Filter />
       <ModelCardList models={currentModels} />
       <Pagination
         totalPage={totalPage}
@@ -30,3 +32,5 @@ export default function ModelCardSection() {
     </div>
   );
 }
+
+
