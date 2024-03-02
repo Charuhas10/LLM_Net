@@ -11,11 +11,13 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Image
-              className="h-auto w-auto"
-              src={logo} // Replace with your logo source
-              alt="Your Logo"
-            />
+            <Link href="/">
+              <Image
+                className="h-auto w-auto"
+                src={logo} // Replace with your logo source
+                alt="Your Logo"
+              />
+            </Link>
           </div>
 
           {/* Main menu items */}
@@ -34,30 +36,6 @@ export default function Navbar() {
                 >
                   Models
                 </Link>
-                {/* <Link
-                  className="text-gray-500 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  href="/datasets"
-                >
-                  Datasets
-                </Link>
-                <Link
-                  className="text-gray-500 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  href="/spaces"
-                >
-                  Spaces
-                </Link>
-                <Link
-                  className="text-gray-500 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  href="/posts"
-                >
-                  Posts
-                </Link>
-                <Link
-                  className="text-gray-500 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                  href="/docs"
-                >
-                  Docs
-                </Link> */}
               </div>
             </div>
           </div>
