@@ -1,7 +1,7 @@
 "use client";
 
 import ModelCardList from "@/components/ModelCardList";
-import Pagination from "@/components/Pagination"; // Import the Pagination component
+import Pagination from "@/components/Pagination";
 import models from "@/models";
 import { useState } from "react";
 import Filter from "./Filter";
@@ -9,10 +9,20 @@ import Filter from "./Filter";
 export default function ModelCardSection() {
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPage = Math.ceil(models.length / itemsPerPage); // Renamed from maxPage for consistency
+  const [filterQuery, setFilterQuery] = useState("");
+
+  const handleSearchChange = (event) => {
+    setFilterQuery(event.target.value.toLowerCase());
+  };
+
+  const filteredModels = models.filter((model) =>
+    model.title.toLowerCase().includes(filterQuery)
+  );
+
+  const totalPage = Math.ceil(filteredModels.length / itemsPerPage);
 
   // Calculate the slice of models to display
-  const currentModels = models.slice(
+  const currentModels = filteredModels.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
@@ -22,7 +32,10 @@ export default function ModelCardSection() {
 
   return (
     <div className="mt-12">
-      <Filter />
+      <Filter
+        searchTerm={filterQuery}
+        handleSearchChange={handleSearchChange}
+      />
       <ModelCardList models={currentModels} />
       <Pagination
         totalPage={totalPage}

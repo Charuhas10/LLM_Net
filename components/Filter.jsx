@@ -3,13 +3,13 @@
 import React, { useState } from "react";
 import models from "@/models";
 
-function Filter() {
-  const [searchTerm, setSearchTerm] = useState("");
+function Filter({ searchTerm, handleSearchChange }) {
+  // const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-    // Implement search functionality or filter as needed
-  };
+  // const handleSearchChange = (event) => {
+  //   setSearchTerm(event.target.value);
+  //   // Implement search functionality or filter as needed
+  // };
 
   return (
     <div className="flex justify-between items-center mb-6 mx-[60px]">

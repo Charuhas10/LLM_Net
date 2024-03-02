@@ -8,7 +8,7 @@ export default function ModelCardList({ models }) {
           key={model.id}
           id={model.id}
           type={model.type}
-          views={model.views}
+          downloads={model.downloads}
           likes={model.likes}
           title={model.title}
         />

@@ -5,7 +5,7 @@ const models = [
   {
     id: 1,
     type: "Data Analysis",
-    views: "89k",
+    downloads: "89k",
     likes: "1.2k",
     title: "data/analysis-1a",
     tags: ["Analytics", "Big Data", "Data Mining"],
@@ -15,7 +15,7 @@ const models = [
   {
     id: 2,
     type: "Machine Learning",
-    views: "120k",
+    downloads: "120k",
     likes: "2.5k",
     title: "machine/learning-2b",
     tags: ["Supervised Learning", "Neural Networks", "Prediction"],
@@ -25,7 +25,7 @@ const models = [
   {
     id: 3,
     type: "Deep Learning",
-    views: "95k",
+    downloads: "95k",
     likes: "2k",
     title: "deep/learning-3c",
     tags: ["Neural Networks", "TensorFlow", "AI"],
@@ -35,7 +35,7 @@ const models = [
   {
     id: 4,
     type: "Natural Language Processing",
-    views: "150k",
+    downloads: "150k",
     likes: "3.1k",
     title: "nlp/processing-4d",
     tags: ["NLP", "Text Analysis", "Chatbots"],
@@ -45,7 +45,7 @@ const models = [
   {
     id: 5,
     type: "Computer Vision",
-    views: "110k",
+    downloads: "110k",
     likes: "2.3k",
     title: "computer/vision-5e",
     tags: ["Image Recognition", "OpenCV", "Visual AI"],
@@ -55,7 +55,7 @@ const models = [
   {
     id: 6,
     type: "Reinforcement Learning",
-    views: "70k",
+    downloads: "70k",
     likes: "1.8k",
     title: "reinforcement/learning-6f",
     tags: ["Q-Learning", "Game AI", "Decision Making"],
@@ -65,7 +65,7 @@ const models = [
   {
     id: 7,
     type: "Data Visualization",
-    views: "85k",
+    downloads: "85k",
     likes: "1.5k",
     title: "data/visualization-7g",
     tags: ["Charts", "Graphs", "Data Art"],
@@ -75,7 +75,7 @@ const models = [
   {
     id: 8,
     type: "Algorithm Design",
-    views: "98k",
+    downloads: "98k",
     likes: "2.2k",
     title: "algorithm/design-8h",
     tags: ["Problem Solving", "Efficiency", "Data Structures"],
@@ -85,7 +85,7 @@ const models = [
   {
     id: 9,
     type: "Cloud Computing",
-    views: "105k",
+    downloads: "105k",
     likes: "3k",
     title: "cloud/computing-9i",
     tags: ["AWS", "Azure", "Distributed Systems"],
@@ -95,7 +95,7 @@ const models = [
   {
     id: 10,
     type: "Cyber Security",
-    views: "92k",
+    downloads: "92k",
     likes: "2.8k",
     title: "cyber/security-10j",
     tags: ["Encryption", "Network Security", "Ethical Hacking"],
@@ -105,7 +105,7 @@ const models = [
   {
     id: 11,
     type: "Blockchain Technology",
-    views: "78k",
+    downloads: "78k",
     likes: "1.9k",
     title: "blockchain/technology-11k",
     tags: ["Cryptocurrency", "Smart Contracts", "Decentralization"],
@@ -115,7 +115,7 @@ const models = [
   {
     id: 12,
     type: "Internet of Things",
-    views: "83k",
+    downloads: "83k",
     likes: "2.1k",
     title: "iot/things-12l",
     tags: ["Smart Home", "Wearables", "Connected Devices"],
@@ -125,7 +125,7 @@ const models = [
   {
     id: 13,
     type: "Quantum Computing",
-    views: "65k",
+    downloads: "65k",
     likes: "1.7k",
     title: "quantum/computing-13m",
     tags: ["Qubits", "Quantum Mechanics", "Superposition"],
@@ -135,7 +135,7 @@ const models = [
   {
     id: 14,
     type: "Augmented Reality",
-    views: "120k",
+    downloads: "120k",
     likes: "3.5k",
     title: "augmented/reality-14n",
     tags: ["AR", "Mixed Reality", "Interactive"],
@@ -145,7 +145,7 @@ const models = [
   {
     id: 15,
     type: "Virtual Reality",
-    views: "110k",
+    downloads: "110k",
     likes: "3.2k",
     title: "virtual/reality-15o",
     tags: ["VR", "Immersive Experience", "3D Environments"],
@@ -155,7 +155,7 @@ const models = [
   {
     id: 16,
     type: "Edge Computing",
-    views: "75k",
+    downloads: "75k",
     likes: "1.6k",
     title: "edge/computing-16p",
     tags: ["Latency", "Edge Devices", "IoT"],
@@ -165,7 +165,7 @@ const models = [
   {
     id: 17,
     type: "5G Technology",
-    views: "130k",
+    downloads: "130k",
     likes: "4k",
     title: "5g/technology-17q",
     tags: ["Latency", "Edge Devices", "IoT"],
@@ -175,7 +175,7 @@ const models = [
   {
     id: 18,
     type: "Artificial Intelligence",
-    views: "200k",
+    downloads: "200k",
     likes: "5k",
     title: "ai/intelligence-18r",
     tags: ["Machine Learning", "Deep Learning", "NLP"],
@@ -185,7 +185,7 @@ const models = [
   {
     id: 19,
     type: "Ethical Hacking",
-    views: "88k",
+    downloads: "88k",
     likes: "2.6k",
     title: "ethical/hacking-19s",
     tags: ["Machine Learning", "Deep Learning", "NLP"],
@@ -195,7 +195,7 @@ const models = [
   {
     id: 20,
     type: "Game Development",
-    views: "140k",
+    downloads: "140k",
     likes: "3.8k",
     title: "game/development-20t",
     tags: ["Machine Learning", "Deep Learning", "NLP"],
