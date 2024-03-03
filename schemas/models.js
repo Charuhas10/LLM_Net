@@ -7,6 +7,7 @@ const modelSchema = new Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
   tags: { type: [String], required: true },
+  featured : { type: Boolean, required: true, default: false },
 });
 
 const Model = models.Model || mongoose.model("Model", modelSchema);

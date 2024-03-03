@@ -1,4 +1,4 @@
-import models from "@/models";
+import models from "@/LLMmodels";
 import Image from "next/image";
 import React from "react";
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
