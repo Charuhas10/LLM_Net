@@ -7,17 +7,18 @@ export default function ModelPage({ id }) {
   const modelId = parseInt(id, 10);
   const model = models.find((model) => model.id === modelId);
 
-  // Ensure model is defined before rendering
   if (!model) {
     return <div>Model not found</div>;
   }
 
   return (
-    <div className="mt-4 p-4  mx-[60px]">
+    <div className="mt-4 p-4 mx-[60px]  dark:text-white">
       {/* First line with icon and title */}
       <div className="flex items-center space-x-2 mb-2">
         <Image src="/google.webp" alt="Google Logo" width={24} height={24} />
-        <h2 className="text-lg font-semibold text-gray-900">{model.title}</h2>
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {model.title}
+        </h2>
       </div>
 
       {/* Second line with tags, interaction buttons, and "Use Model" button */}
@@ -28,17 +29,17 @@ export default function ModelPage({ id }) {
           {model.tags.map((tag) => (
             <span
               key={tag}
-              className="bg-gray-100 text-gray-800 rounded-full px-3 py-1 text-sm"
+              className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-sm"
             >
               {tag}
             </span>
           ))}
 
           {/* Download and like buttons */}
-          <div className="flex items-center space-x-1 text-gray-500">
+          <div className="flex items-center space-x-1 text-gray-500 dark:text-gray-300">
             <AiOutlineDownload className="h-5 w-5" />
             <span>{model.views}</span>
-            <AiOutlineHeart className="h-5 w-5 text-red-500" />
+            <AiOutlineHeart className="h-5 w-5 text-red-500 dark:text-red-400" />
             <span>{model.likes}</span>
           </div>
         </div>

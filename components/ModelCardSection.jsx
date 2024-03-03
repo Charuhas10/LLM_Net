@@ -2,11 +2,36 @@
 
 import ModelCardList from "@/components/ModelCardList";
 import Pagination from "@/components/Pagination";
-import models from "@/models";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Filter from "./Filter";
 
 export default function ModelCardSection() {
+  const [models, setModels] = useState([]);
+
+  useEffect(() => {
+    const getModels = async () => {
+      try {
+        const res = await fetch("/api/getLLM", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (res.ok) {
+          const models = await res.json();
+          setModels(models);
+        } else {
+          console.log("Error fetching models");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getModels();
+  }, []);
+
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [filterQuery, setFilterQuery] = useState("");
@@ -35,6 +60,7 @@ export default function ModelCardSection() {
       <Filter
         searchTerm={filterQuery}
         handleSearchChange={handleSearchChange}
+        models={models}
       />
       <ModelCardList models={currentModels} />
       <Pagination
