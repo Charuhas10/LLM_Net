@@ -3,20 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "@/public/logo.png";
+import ThemeSwitch from "./ThemeSwitch";
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow">
+    <nav className="bg-white shadow dark:bg-neutral-900">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-2">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image
-                className="h-auto w-auto"
-                src={logo} // Replace with your logo source
-                alt="Your Logo"
-              />
+              <Image className="h-auto w-auto" src={logo} alt="Your Logo" />
             </Link>
           </div>
 
@@ -36,6 +32,7 @@ export default function Navbar() {
                 >
                   Models
                 </Link>
+                <ThemeSwitch />
               </div>
             </div>
           </div>

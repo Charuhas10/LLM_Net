@@ -45,3 +45,5 @@ export default function ModelCardSection() {
     </div>
   );
 }
+
+// className={`mt-12 ${theme === "dark" ? "dark" : ""}`}
