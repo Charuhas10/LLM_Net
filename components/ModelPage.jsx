@@ -1,11 +1,39 @@
-import models from "@/LLMmodels";
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
 
 export default function ModelPage({ id }) {
-  const modelId = parseInt(id, 10);
-  const model = models.find((model) => model.id === modelId);
+  const [models, setModels] = useState([]);
+
+  useEffect(() => {
+    const getModels = async () => {
+      try {
+        const res = await fetch("/api/getLLM", {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+
+        if (res.ok) {
+          const models = await res.json();
+          setModels(models);
+        } else {
+          console.log("Error fetching models");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getModels();
+  }, []);
+
+  console.log(models);
+
+  const model = models.find((model) => model._id === id);
 
   if (!model) {
     return <div>Model not found</div>;
