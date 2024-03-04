@@ -1,8 +1,6 @@
-"use client";
-
 import Image from "next/image";
-import { useContext, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { useRouter } from "next/navigation"; // Ensure correct import path
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
 
 export default function ModelCard({
@@ -11,17 +9,24 @@ export default function ModelCard({
   downloads,
   likes,
   title,
+  featured,
   description,
   icon,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const [liked, setLiked] = useState(false);
+  const [likeCount, setLikeCount] = useState(likes);
 
   const router = useRouter();
 
   const toggleLike = (e) => {
     e.stopPropagation();
     setLiked(!liked);
+    if (!liked) {
+      setLikeCount(likeCount + 1);
+    } else {
+      setLikeCount(likeCount - 1);
+    }
     console.log("Like toggled");
   };
 
@@ -43,7 +48,7 @@ export default function ModelCard({
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
-          <Image src="/google.webp" alt="Logo" width={20} height={20} />
+          <Image src={icon} alt="Logo" width={20} height={20} />
         </div>
         <p
           className={`text-sm font-medium truncate ${
@@ -76,7 +81,7 @@ export default function ModelCard({
                 : "text-[#6b728d] dark:text-gray-400"
             }`}
           />
-          <span className="ml-1">{likes}</span>
+          <span className="ml-1">{likeCount}</span>
         </div>
       </div>
     </div>

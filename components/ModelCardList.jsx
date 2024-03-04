@@ -14,6 +14,7 @@ export default function ModelCardList({ models }) {
           downloads={model.downloads}
           likes={model.likes}
           title={model.title}
+          featured={model.featured}
           description={model.description}
           icon={model.icon}
         />

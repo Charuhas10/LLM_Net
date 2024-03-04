@@ -5,14 +5,14 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiOutlineCaretDown, AiOutlineSearch } from "react-icons/ai";
 
-function Filter({ searchTerm, handleSearchChange, models }) {
+function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
   const [showDropdown, setShowDropdown] = useState(false);
-  const [sortOption, setSortOption] = useState("Trending");
+  const [sortOption, setSortOption] = useState("Featured");
 
   const handleSortChange = (option) => {
     setSortOption(option);
     setShowDropdown(false);
-    // Here you would implement the sorting logic or call a function to do it.
+    onSortChange(option);
   };
   const router = useRouter();
 
@@ -57,9 +57,16 @@ function Filter({ searchTerm, handleSearchChange, models }) {
             <Link
               href="#"
               className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"
-              onClick={() => handleSortChange("Trending")}
+              onClick={() => handleSortChange("All")}
             >
-              Trending
+              All
+            </Link>
+            <Link
+              href="#"
+              className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"
+              onClick={() => handleSortChange("Featured")}
+            >
+              Featured
             </Link>
             <Link
               href="#"
@@ -79,7 +86,7 @@ function Filter({ searchTerm, handleSearchChange, models }) {
         )}
 
         {/* <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100">
-          Sort: Trending
+          Sort: Featured
         </button> */}
       </div>
     </div>

@@ -9,9 +9,51 @@ import { ModelContext } from "@/lib/context";
 export default function ModelCardSection() {
   const { models } = useContext(ModelContext);
 
-  const itemsPerPage = 15;
+  const [sortOption, setSortOption] = useState("Featured");
   const [currentPage, setCurrentPage] = useState(1);
   const [filterQuery, setFilterQuery] = useState("");
+
+  const itemsPerPage = 15;
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
+  };
+
+  const getSortedFilteredModels = () => {
+    // Start with all models or those matching the filter query
+    let sortedFilteredModels = models.filter((model) =>
+      model.title.toLowerCase().includes(filterQuery)
+    );
+
+    // Apply sorting or filtering based on the sortOption
+    switch (sortOption) {
+      case "Featured":
+        // Optionally filter by featured models if you have such a flag; otherwise, do nothing special
+        sortedFilteredModels = sortedFilteredModels.filter(
+          (model) => model.featured
+        );
+        break;
+      case "Most likes":
+        sortedFilteredModels.sort((a, b) => b.likes - a.likes);
+        break;
+      case "Most downloads":
+        sortedFilteredModels.sort((a, b) => b.downloads - a.downloads);
+        break;
+      case "All":
+      default:
+        // Optionally, do nothing or apply a default sort
+        break;
+    }
+
+    return sortedFilteredModels;
+  };
+
+  const sortedFilteredModels = getSortedFilteredModels();
+  const totalPage = Math.ceil(sortedFilteredModels.length / itemsPerPage);
+  const currentModels = sortedFilteredModels.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   const handleSearchChange = (event) => {
     setFilterQuery(event.target.value.toLowerCase());
@@ -21,13 +63,13 @@ export default function ModelCardSection() {
     model.title.toLowerCase().includes(filterQuery)
   );
 
-  const totalPage = Math.ceil(filteredModels.length / itemsPerPage);
+  // const totalPage = Math.ceil(filteredModels.length / itemsPerPage);
 
-  // Calculate the slice of models to display
-  const currentModels = filteredModels.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
-  );
+  // // Calculate the slice of models to display
+  // const currentModels = filteredModels.slice(
+  //   (currentPage - 1) * itemsPerPage,
+  //   currentPage * itemsPerPage
+  // );
 
   console.log("current", currentModels);
 
@@ -40,6 +82,7 @@ export default function ModelCardSection() {
         searchTerm={filterQuery}
         handleSearchChange={handleSearchChange}
         models={models}
+        onSortChange={handleSortChange}
       />
       <ModelCardList models={currentModels} />
       <Pagination
