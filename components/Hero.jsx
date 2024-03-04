@@ -1,14 +1,12 @@
 "use client";
 
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import ModelCard from "./ModelCard";
 import { ModelContext } from "@/lib/context";
 
 export default function HeroSection() {
   const { models } = useContext(ModelContext);
-
-  const featuredModels = models.filter((model) => model.featured);
-  console.log(featuredModels);
+  const featuredModels = models.filter((model) => model.featured).slice(0, 6);
 
   return (
     <div className="flex md:flex-row items-center justify-center py-12 mx-[60px] box-border">
@@ -23,6 +21,8 @@ export default function HeroSection() {
               downloads={model.downloads}
               likes={model.likes}
               title={model.title}
+              description={model.description}
+              icon={model.icon}
             />
           ))}
         </div>

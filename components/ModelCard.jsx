@@ -1,12 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import google from "@/public/google.webp";
 import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; 
+import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
 
-export default function ModelCard({ id, type, downloads, likes, title }) {
+export default function ModelCard({
+  id,
+  type,
+  downloads,
+  likes,
+  title,
+  description,
+  icon,
+}) {
   const [isHovered, setIsHovered] = useState(false);
   const [liked, setLiked] = useState(false);
 
@@ -30,12 +37,13 @@ export default function ModelCard({ id, type, downloads, likes, title }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
+        console.log("Clicked", { id });
         router.push(`/models/${id}`);
       }}
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
-          <Image src={google} alt="Logo" width={20} height={20} />
+          <Image src="/google.webp" alt="Logo" width={20} height={20} />
         </div>
         <p
           className={`text-sm font-medium truncate ${

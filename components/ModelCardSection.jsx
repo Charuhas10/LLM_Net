@@ -9,8 +9,6 @@ import { ModelContext } from "@/lib/context";
 export default function ModelCardSection() {
   const { models } = useContext(ModelContext);
 
-  console.log("models from context", models);
-
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
   const [filterQuery, setFilterQuery] = useState("");
@@ -30,6 +28,8 @@ export default function ModelCardSection() {
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
+
+  console.log("current", currentModels);
 
   // Function to handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
