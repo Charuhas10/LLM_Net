@@ -4,13 +4,11 @@ import Image from "next/image";
 import google from "@/public/google.webp";
 import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
-import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Import icons from react-icons
-// import { ThemeContext } from "@/themeContext";
+import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; 
 
 export default function ModelCard({ id, type, downloads, likes, title }) {
   const [isHovered, setIsHovered] = useState(false);
   const [liked, setLiked] = useState(false);
-  // const { theme } = useContext(ThemeContext); // Use ThemeContext to get current theme
 
   const router = useRouter();
 

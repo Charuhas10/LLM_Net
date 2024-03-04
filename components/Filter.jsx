@@ -1,9 +1,21 @@
 "use client";
 
-import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+import { AiOutlineCaretDown, AiOutlineSearch } from "react-icons/ai";
 
 function Filter({ searchTerm, handleSearchChange, models }) {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [sortOption, setSortOption] = useState("Trending");
+
+  const handleSortChange = (option) => {
+    setSortOption(option);
+    setShowDropdown(false);
+    // Here you would implement the sorting logic or call a function to do it.
+  };
+  const router = useRouter();
+
   return (
     <div className="flex justify-between items-center mb-6 mx-[60px]">
       <div className="flex items-center space-x-4">
@@ -25,13 +37,50 @@ function Filter({ searchTerm, handleSearchChange, models }) {
         </div>
       </div>
       <div className="flex space-x-2">
-        <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100">
-          New
+        <button
+          onClick={() => {
+            router.push("/new");
+          }}
+          className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100"
+        >
+          Create
         </button>
 
-        <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100">
-          Sort: Trending
+        <button
+          className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100 flex items-center"
+          onClick={() => setShowDropdown(!showDropdown)}
+        >
+          Sort: {sortOption} <AiOutlineCaretDown className="ml-2" />
         </button>
+        {showDropdown && (
+          <div className="absolute right-[55px] mt-[2.7rem] px-4 py-2  rounded-[15px] bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-800 shadow-xl z-50">
+            <Link
+              href="#"
+              className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"
+              onClick={() => handleSortChange("Trending")}
+            >
+              Trending
+            </Link>
+            <Link
+              href="#"
+              className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"
+              onClick={() => handleSortChange("Most likes")}
+            >
+              Most likes
+            </Link>
+            <Link
+              href="#"
+              className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"
+              onClick={() => handleSortChange("Most downloads")}
+            >
+              Most downloads
+            </Link>
+          </div>
+        )}
+
+        {/* <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100">
+          Sort: Trending
+        </button> */}
       </div>
     </div>
   );

@@ -2,35 +2,14 @@
 
 import ModelCardList from "@/components/ModelCardList";
 import Pagination from "@/components/Pagination";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Filter from "./Filter";
+import { ModelContext } from "@/lib/context";
 
 export default function ModelCardSection() {
-  const [models, setModels] = useState([]);
+  const { models } = useContext(ModelContext);
 
-  useEffect(() => {
-    const getModels = async () => {
-      try {
-        const res = await fetch("/api/getLLM", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (res.ok) {
-          const models = await res.json();
-          setModels(models);
-        } else {
-          console.log("Error fetching models");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getModels();
-  }, []);
+  console.log("models from context", models);
 
   const itemsPerPage = 15;
   const [currentPage, setCurrentPage] = useState(1);
@@ -71,5 +50,3 @@ export default function ModelCardSection() {
     </div>
   );
 }
-
-// className={`mt-12 ${theme === "dark" ? "dark" : ""}`}

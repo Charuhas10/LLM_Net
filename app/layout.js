@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
+import { ModelProvider } from "@/lib/context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,12 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} bg-neutral-100 dark:bg-neutral-900`}>
         <Providers>
-          <div>
-            <Navbar />
-            {children}
-          </div>
+          <ModelProvider>
+            <div>
+              <Navbar />
+              {children}
+            </div>
+          </ModelProvider>
         </Providers>
       </body>
     </html>

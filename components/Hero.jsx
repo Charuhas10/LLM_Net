@@ -1,34 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ModelCard from "./ModelCard";
+import { ModelContext } from "@/lib/context";
 
 export default function HeroSection() {
-  const [models, setModels] = useState([]);
-
-  useEffect(() => {
-    const getModels = async () => {
-      try {
-        const res = await fetch("/api/getLLM", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        if (res.ok) {
-          const models = await res.json();
-          setModels(models);
-        } else {
-          console.log("Error fetching models");
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    getModels();
-  }, []);
+  const { models } = useContext(ModelContext);
 
   const featuredModels = models.filter((model) => model.featured);
   console.log(featuredModels);
