@@ -37,7 +37,6 @@ export default function ModelCard({ id, type, downloads, likes, title }) {
     >
       <div className="flex items-center space-x-4">
         <div className="flex-shrink-0">
-          {/* Use next/image for optimal loading and performance */}
           <Image src={google} alt="Logo" width={20} height={20} />
         </div>
         <p
