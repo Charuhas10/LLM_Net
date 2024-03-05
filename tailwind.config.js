@@ -12,7 +12,7 @@ module.exports = {
       md: "550px",
       lg: "768px",
       xl: "1024px",
-      "2xl": "1280px",
+      "2xl": "1200px",
     },
     extend: {
       // screens: {
