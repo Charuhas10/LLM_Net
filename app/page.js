@@ -3,9 +3,11 @@ import Hero from "@/components/Hero";
 
 export default function Home() {
   return (
-    <div>
-        <Hero />
-        <Footer />
+    <div className="flex flex-col min-h-screen">
+      <Hero />
+      <div className="flex-grow"></div>{" "}
+      {/* This div will take up any available space */}
+      <Footer />
     </div>
   );
 }

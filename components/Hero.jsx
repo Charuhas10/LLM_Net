@@ -31,10 +31,10 @@ export default function HeroSection() {
       </div>
 
       <div className="sm:mt-8 sm:w-full xl:w-1/2 lg:mt-8 xl:ml-12 ">
-        <h1 className="sm:mt-4 sm:text-3xl sm:text-center md:text-4xl lg:text-5xl xl:text-7xl 2xl:text-8xl font-bold xl:text-left">
+        <h1 className="sm:mt-4 sm:text-3xl sm:text-center md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold xl:text-left">
           EVERYTHING YOU NEED TO KNOW ABOUT LLMS
         </h1>
-        <p className="sm:mt-4 sm:text-[14px] sm:leading-4 sm:text-center sm:mb-4 md:mb-0 lg:text-lg xl:mt-4 xl:text-left">
+        <p className="sm:mt-4 sm:text-[14px] sm:leading-4 sm:text-center sm:mb-4 md:mb-3 md:text-[20px] md:leading-6 lg:mb-5 lg:text-lg xl:mt-4 xl:text-left">
           Grow your knowledge bigger with LLM Net. Get to know about the latest
           LLMs and their features. Browse through our collection of LLMs and
           find the one that suits your needs.

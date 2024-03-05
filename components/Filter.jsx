@@ -50,7 +50,7 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
           className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100 flex items-center"
           onClick={() => setShowDropdown(!showDropdown)}
         >
-          Filter: {sortOption} <AiOutlineCaretDown className="ml-2" />
+          Sort: {sortOption} <AiOutlineCaretDown className="ml-2" />
         </button>
         {showDropdown && (
           <div className="absolute right-[55px] mt-[2.7rem] px-4 py-2  rounded-[15px] bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-800 shadow-xl z-50">
