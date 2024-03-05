@@ -6,9 +6,7 @@ import React, { useContext } from "react";
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
 
 export default function ModelPage({ id }) {
-  console.log(id);
   const { models } = useContext(ModelContext);
-  console.log(models);
 
   const model = models.find((model) => model._id === id);
 

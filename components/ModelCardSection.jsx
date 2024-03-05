@@ -9,7 +9,7 @@ import { ModelContext } from "@/lib/context";
 export default function ModelCardSection() {
   const { models } = useContext(ModelContext);
 
-  const [sortOption, setSortOption] = useState("Featured");
+  const [sortOption, setSortOption] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [filterQuery, setFilterQuery] = useState("");
 
@@ -62,14 +62,6 @@ export default function ModelCardSection() {
   const filteredModels = models.filter((model) =>
     model.title.toLowerCase().includes(filterQuery)
   );
-
-  // const totalPage = Math.ceil(filteredModels.length / itemsPerPage);
-
-  // // Calculate the slice of models to display
-  // const currentModels = filteredModels.slice(
-  //   (currentPage - 1) * itemsPerPage,
-  //   currentPage * itemsPerPage
-  // );
 
   console.log("current", currentModels);
 
