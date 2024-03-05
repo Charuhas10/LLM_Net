@@ -17,12 +17,15 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
   const router = useRouter();
 
   return (
-    <div className="flex justify-between items-center mb-6 mx-[60px]">
-      <div className="flex items-center space-x-4">
-        <h1 className="text-xl dark:text-gray-100">Models</h1>
-        <span className="text-xl text-[#9ca3af] dark:text-gray-400">
-          {models.length.toLocaleString()}
-        </span>
+    <div className="flex sm:flex-col sm:gap-4 filter-md:flex-row filter-md:gap-0 justify-between items-center mb-6 mx-[65px]">
+      <div className="flex sm:flex-col sm:gap-4 filter-md:flex-row filter-md:gap-0 items-center space-x-4">
+        <h1 className="lg:text-lg sm:text-2xl dark:text-gray-100">
+          MODELS{" "}
+          <span className="lg:text-lg sm:text-2xl text-[#9ca3af] dark:text-gray-400">
+            {models.length.toLocaleString()}
+          </span>
+        </h1>
+
         <div className="relative">
           <input
             type="text"
@@ -36,18 +39,19 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
           </span>
         </div>
       </div>
+
       <div className="flex space-x-2">
         <button
           onClick={() => {
             router.push("/new");
           }}
-          className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100"
+          className="md:text-sm sm:text-xs px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100"
         >
           Add Model
         </button>
 
         <button
-          className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100 flex items-center"
+          className="md:text-sm sm:text-xs px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100 flex items-center"
           onClick={() => setShowDropdown(!showDropdown)}
         >
           Sort: {sortOption} <AiOutlineCaretDown className="ml-2" />
@@ -84,10 +88,6 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
             </Link>
           </div>
         )}
-
-        {/* <button className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100">
-          Sort: Featured
-        </button> */}
       </div>
     </div>
   );

@@ -2,17 +2,26 @@
 
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
-import React, { useContext } from "react";
-import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
+import React, { useContext, useState } from "react";
+import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
 
 export default function ModelPage({ id }) {
   const { models } = useContext(ModelContext);
-
   const model = models.find((model) => model._id === id);
+
+  const [liked, setLiked] = useState(false);
+  const [likesCount, setLikesCount] = useState(model.likes); // Initialize with model.likes or 0 if model is undefined
 
   if (!model) {
     return <div>Model not found</div>;
   }
+
+  const toggleLike = () => {
+    if (model) {
+      setLiked(!liked);
+      setLikesCount(liked ? likesCount - 1 : likesCount + 1); // Decrease if already liked, else increase
+    }
+  };
 
   return (
     <div className="mt-4 p-4 mx-[60px]  dark:text-white">
@@ -42,8 +51,18 @@ export default function ModelPage({ id }) {
           <div className="flex items-center space-x-1 text-gray-500 dark:text-gray-300">
             <AiOutlineDownload className="h-5 w-5" />
             <span>{model.views}</span>
-            <AiOutlineHeart className="h-5 w-5 text-red-500 dark:text-red-400" />
-            <span>{model.likes}</span>
+            {liked ? (
+              <AiFillHeart
+                className="h-5 w-5 text-red-500 cursor-pointer"
+                onClick={toggleLike}
+              />
+            ) : (
+              <AiOutlineHeart
+                className="h-5 w-5 text-gray-500 dark:text-gray-300 cursor-pointer"
+                onClick={toggleLike}
+              />
+            )}
+            <span>{likesCount}</span>
           </div>
         </div>
 
@@ -53,6 +72,10 @@ export default function ModelPage({ id }) {
             Use Model
           </button>
         </div>
+      </div>
+      <div className="flex mt-8">
+        <div className="w-1/2">{model.description}</div>
+        <div className="w-1/2">CODE</div>
       </div>
     </div>
   );

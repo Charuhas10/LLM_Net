@@ -10,15 +10,12 @@ module.exports = {
     screens: {
       sm: "300px",
       md: "550px",
+      "filter-md": "705px",
       lg: "768px",
       xl: "1024px",
       "2xl": "1200px",
     },
     extend: {
-      // screens: {
-      //   sm: "400px",
-      //   md: "550px",
-      // },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

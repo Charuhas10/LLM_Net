@@ -4,7 +4,7 @@ import { FaGithub, FaLinkedin, FaUser } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="flex items-center justify-between p-4 bg-[#fafafa] text-center shadow dark:shadow-neutral-700 dark:bg-neutral-900">
+    <footer className="flex items-center justify-between p-4 bg-[#fafafa] text-center shadow dark:shadow-neutral-700 dark:bg-neutral-900 mt-auto">
       <div className="flex items-center">
         <p className="text-sm text-black dark:text-white">
           &copy; 2020 Charuhas Reddy Balam

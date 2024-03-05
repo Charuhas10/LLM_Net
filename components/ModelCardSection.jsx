@@ -12,23 +12,38 @@ export default function ModelCardSection() {
   const [sortOption, setSortOption] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
   const [filterQuery, setFilterQuery] = useState("");
+  const [itemsPerPage, setItemsPerPage] = useState(15);
 
-  const itemsPerPage = 15;
+  useEffect(() => {
+    const handleResize = () => {
+      // Adjust itemsPerPage based on window width
+      const width = window.innerWidth;
+      if (width < 650) {
+        setItemsPerPage(8);
+      } else if (width < 768) {
+        setItemsPerPage(10);
+      } else {
+        setItemsPerPage(15); // Default value for large devices
+      }
+    };
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleSortChange = (option) => {
     setSortOption(option);
   };
 
   const getSortedFilteredModels = () => {
-    // Start with all models or those matching the filter query
     let sortedFilteredModels = models.filter((model) =>
       model.title.toLowerCase().includes(filterQuery)
     );
 
-    // Apply sorting or filtering based on the sortOption
     switch (sortOption) {
       case "Featured":
-        // Optionally filter by featured models if you have such a flag; otherwise, do nothing special
         sortedFilteredModels = sortedFilteredModels.filter(
           (model) => model.featured
         );
@@ -41,7 +56,6 @@ export default function ModelCardSection() {
         break;
       case "All":
       default:
-        // Optionally, do nothing or apply a default sort
         break;
     }
 
@@ -69,7 +83,7 @@ export default function ModelCardSection() {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <div className="mt-12">
+    <div className="filter-md:mt-12 sm:mt-8">
       <Filter
         searchTerm={filterQuery}
         handleSearchChange={handleSearchChange}
