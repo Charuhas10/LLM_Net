@@ -15,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-neutral-100 dark:bg-neutral-900`}>
+      <body className={`${inter.className} bg-[#fafafa] dark:bg-neutral-900`}>
         <Providers>
           <ModelProvider>
             <div>

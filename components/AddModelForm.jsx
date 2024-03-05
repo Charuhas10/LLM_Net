@@ -38,7 +38,27 @@ export default function AddModelForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 mx-[60px] mt-12">
       <div>
-        <label htmlFor="type" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="title"
+          className="block text-sm font-medium text-gray-700"
+        >
+          Title
+        </label>
+        <input
+          type="text"
+          name="title"
+          id="title"
+          value={model.title}
+          onChange={handleChange}
+          required
+          className="mt-1 block w-full border-gray-300 shadow-sm sm:text-sm"
+        />
+      </div>
+      <div>
+        <label
+          htmlFor="type"
+          className="block text-sm font-medium text-gray-700"
+        >
           Type
         </label>
         <input
@@ -53,22 +73,10 @@ export default function AddModelForm() {
       </div>
 
       <div>
-        <label htmlFor="title" className="block text-sm font-medium text-gray-700">
-          Title
-        </label>
-        <input
-          type="text"
-          name="title"
-          id="title"
-          value={model.title}
-          onChange={handleChange}
-          required
-          className="mt-1 block w-full border-gray-300 shadow-sm sm:text-sm"
-        />
-      </div>
-
-      <div>
-        <label htmlFor="tags" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="tags"
+          className="block text-sm font-medium text-gray-700"
+        >
           Tags (comma separated)
         </label>
         <input
@@ -83,7 +91,10 @@ export default function AddModelForm() {
       </div>
 
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+        <label
+          htmlFor="description"
+          className="block text-sm font-medium text-gray-700"
+        >
           Description
         </label>
         <textarea

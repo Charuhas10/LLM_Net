@@ -1,36 +1,38 @@
+import Link from "next/link";
 import React from "react";
-import { AiFillGithub, AiFillLinkedin } from "react-icons/ai"; // You need to install react-icons if you haven't already
-import { FaUserAlt } from "react-icons/fa"; // Assuming you want to use this for the profile icon
+import { FaGithub, FaLinkedin, FaUser } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="flex items-center justify-between p-4 bg-gray-100 text-center">
-      <div className="mb-2">charuhasreddybalam@gmail.com</div>
-      <div className="flex space-x-4 mb-2">
-        {/* Placeholder for icons */}
-        <a
-          href="https://github.com/charuhas10"
+    <footer className="flex items-center justify-between p-4 bg-[#fafafa] text-center shadow dark:shadow-neutral-700 dark:bg-neutral-900">
+      <div className="flex items-center">
+        <p className="text-sm text-black dark:text-white">
+          &copy; 2020 Charuhas Reddy Balam
+        </p>
+      </div>
+      <div className="flex space-x-4">
+        <Link
+          href="https://www.github.com/charuhas10"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiFillGithub className="text-2xl hover:text-gray-700" />
-        </a>
-        <a
+          <FaGithub className="text-2xl hover:text-gray-700 hover:dark:text-[#d6d6d6]" />
+        </Link>
+        <Link
           href="https://www.linkedin.com/in/charuhas-reddy/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiFillLinkedin className="text-2xl hover:text-blue-700" />
-        </a>
-        <a
+          <FaLinkedin className="text-2xl hover:text-gray-700 hover:dark:text-[#d6d6d6]" />
+        </Link>
+        <Link
           href="https://charuhas10.github.io/Portfolio/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FaUserAlt className="text-2xl hover:text-gray-700" />
-        </a>
+          <FaUser className="text-2xl hover:text-gray-700 hover:dark:text-[#d6d6d6]" />
+        </Link>
       </div>
-      <p className="text-sm text-gray-600">&copy; 2024 Charuhas Reddy Balam</p>
     </footer>
   );
 }
