@@ -43,7 +43,7 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
           }}
           className="px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100"
         >
-          Create
+          Add Model
         </button>
 
         <button
