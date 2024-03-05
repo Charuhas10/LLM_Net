@@ -1,9 +1,10 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function AddModelForm() {
-  // Initialize the form state without downloads and likes
+  const router = useRouter();
   const [model, setModel] = useState({
     type: "",
     title: "",
@@ -26,13 +27,26 @@ export default function AddModelForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add default values for downloads and likes when submitting the form
-    const finalModel = { ...model, downloads: "0", likes: "0" };
-    console.log(finalModel);
-    // Here you would usually send the finalModel data to the server
-    // or update the state in your application
+    try {
+      const res = await fetch("/api/newLLM", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(model),
+      });
+      if (res.ok) {
+        alert("Model added successfully");
+        router.replace("/models");
+      } else {
+        alert("Failed to add model");
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to add model");
+    }
   };
 
   return (

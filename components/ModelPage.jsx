@@ -32,7 +32,7 @@ export default function ModelPage({ id }) {
           {model.tags.map((tag) => (
             <span
               key={tag}
-              className="bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-sm"
+              className="bg-[#e0e0e0] dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full px-3 py-1 text-sm"
             >
               {tag}
             </span>
