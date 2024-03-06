@@ -14,7 +14,7 @@ const modelSchema = new Schema({
     required: true,
     default: "CURRENTLY THIS MODEL DOES NOT HAVE ANY CODE",
   },
-  useCases: { type: String },
+  useCases: { type: String, required: true, default: "No use cases added" },
 });
 
 const Model = models.Model || mongoose.model("Model", modelSchema);

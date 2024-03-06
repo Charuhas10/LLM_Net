@@ -7,7 +7,7 @@ import sanitize from "mongo-sanitize";
 const validateModel = [
   body("type").trim().escape(),
   body("title").trim().escape(),
-  body("tags").isArray().withMessage("Tags must be an array"),
+  body("tags").trim().escape(),
   body("description").trim().escape(),
   body("useCases").trim().escape(),
   body("code").trim().escape(),
@@ -20,7 +20,7 @@ export async function POST(req) {
     const cleanReq = sanitize(await req.json());
 
     // Validate input
-    await validateModel.forEach((validation) => validation.run(req));
+    validateModel.forEach((validation) => validation.run(req));
 
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
