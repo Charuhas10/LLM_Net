@@ -1,9 +1,11 @@
 "use client";
 
+import { ModelContext } from "@/lib/context";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 export default function AddModelForm() {
+  const { refetch } = useContext(ModelContext);
   const router = useRouter();
   const [model, setModel] = useState({
     type: "",
@@ -39,6 +41,7 @@ export default function AddModelForm() {
       });
       if (res.ok) {
         alert("Model added successfully");
+        refetch();
         router.replace("/models");
       } else {
         alert("Failed to add model");

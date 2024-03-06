@@ -4,11 +4,15 @@ import Image from "next/image";
 import Link from "next/link";
 import ThemeSwitch from "./ThemeSwitch";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const { resolvedTheme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState("/logo.png");
 
-  const logoSrc = resolvedTheme === "dark" ? "/logo_white.png" : "/logo.png";
+  useEffect(() => {
+    setLogoSrc(resolvedTheme === "dark" ? "/logo_white.png" : "/logo.png");
+  }, [resolvedTheme]);
 
   return (
     <nav className="top-0 bg-[#fafafa] shadow dark:shadow-neutral-700 dark:bg-neutral-900">
