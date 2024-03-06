@@ -1,13 +1,16 @@
 "use client";
 
+import React, { useContext, useState } from "react";
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
-import React, { useContext, useState } from "react";
 import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
+import { useRouter } from "next/navigation";
 
 export default function ModelPage({ id }) {
   const { models } = useContext(ModelContext);
   const model = models.find((model) => model._id === id);
+
+  const router = useRouter();
 
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(model?.likes || 0); // Initialize with model.likes or 0 if model is undefined
@@ -27,7 +30,7 @@ export default function ModelPage({ id }) {
     <div className="mt-4 p-4 mx-[60px]  dark:text-white">
       {/* First line with icon and title */}
       <div className="flex items-center space-x-2 mb-2">
-        <Image src="/google.webp" alt="Google Logo" width={24} height={24} />
+        <Image src={model.icon} alt="Google Logo" width={24} height={24} />
         <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
           {model.title}
         </h2>
@@ -68,7 +71,12 @@ export default function ModelPage({ id }) {
 
         {/* "Use Model" button */}
         <div>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">
+          <button
+            onClick={() => {
+              router.replace("/useModel");
+            }}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300"
+          >
             Use Model
           </button>
         </div>
