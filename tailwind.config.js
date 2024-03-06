@@ -10,8 +10,10 @@ module.exports = {
     screens: {
       sm: "300px",
       md: "550px",
+      "modelTags": "670px",
       "filter-md": "705px",
       lg: "768px",
+      "modelPage-lg": "950px",
       xl: "1024px",
       "2xl": "1200px",
     },
