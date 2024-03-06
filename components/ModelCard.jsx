@@ -2,6 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
+import Like from "./Like";
 
 export default function ModelCard({ id, type, downloads, likes, title, icon }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -52,8 +53,9 @@ export default function ModelCard({ id, type, downloads, likes, title, icon }) {
         <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
           {type}
         </p>
+        <Like likes={likes} />
 
-        <div
+        {/* <div
           onClick={toggleLike}
           className="flex items-center text-sm text-gray-600 dark:text-gray-300"
         >
@@ -65,7 +67,7 @@ export default function ModelCard({ id, type, downloads, likes, title, icon }) {
             }`}
           />
           <span className="ml-1">{likeCount}</span>
-        </div>
+        </div> */}
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 export default function Navbar() {
   const { resolvedTheme } = useTheme();
-  const [logoSrc, setLogoSrc] = useState("/logo.png");
+  const [logoSrc, setLogoSrc] = useState("/logo_2.png");
 
   useEffect(() => {
     setLogoSrc(resolvedTheme === "dark" ? "/logo_white_2.png" : "/logo_2.png");

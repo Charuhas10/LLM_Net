@@ -3,37 +3,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
-import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; 
+import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
 import { useRouter } from "next/navigation";
+import Like from "./Like";
 
 export default function ModelPage({ id }) {
-  const { models } = useContext(ModelContext);
+  const { models, refetch } = useContext(ModelContext);
+  refetch();
   const model = models.find((model) => model._id === id);
 
   const router = useRouter();
 
-  const [liked, setLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(model?.likes);
-
-  useEffect(() => {
-    if (model?.likes) {
-      setLikesCount(model.likes);
-    }
-  }, [model]);
-
-  if (!model) {
-    return <div>Model not found</div>;
-  }
-
-  const toggleLike = () => {
-    if (model) {
-      setLiked(!liked);
-      setLikesCount(liked ? likesCount - 1 : likesCount + 1); 
-    }
-  };
-
-  if (model.useCases === undefined)
-    model.useCases = "Currently No Use Cases Added";
   const useCasesArray = model.useCases.split("\n");
 
   const copyToClipboard = () => {
@@ -49,7 +29,7 @@ export default function ModelPage({ id }) {
     }
   };
 
-  return (
+  return model ? (
     <div className="mt-4 p-4 mx-[60px] dark:text-white ">
       <div className="modelTags:block md:flex md:flex-col">
         <div className="flex items-center space-x-2 mb-2">
@@ -73,7 +53,8 @@ export default function ModelPage({ id }) {
             <div className="flex gap-1 items-center space-x-1 text-gray-500 dark:text-gray-300">
               <AiOutlineDownload className="h-5 w-5" />
               <span>{model.downloads}</span>
-              {liked ? (
+              <Like likes={model.likes} />
+              {/* {liked ? (
                 <AiFillHeart
                   className="h-5 w-5 text-red-500 cursor-pointer"
                   onClick={toggleLike}
@@ -84,7 +65,7 @@ export default function ModelPage({ id }) {
                   onClick={toggleLike}
                 />
               )}
-              <span>{likesCount}</span>
+              <span>{likesCount}</span> */}
             </div>
           </div>
 
@@ -128,5 +109,7 @@ export default function ModelPage({ id }) {
         </div>
       </div>
     </div>
+  ) : (
+    <div>Model not found!</div>
   );
 }

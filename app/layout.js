@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} bg-[#fafafa] dark:bg-neutral-900`}>
         <Providers>
           <ModelProvider>
-            <div>
+            <div className="flex flex-col min-h-screen justify-between">
               <SpeedInsights />
               <Navbar />
               {children}
