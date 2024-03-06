@@ -17,7 +17,7 @@ export default function ModelPage({ id }) {
 
   const model = models.find((model) => model._id === id);
 
-  const useCasesArray = model.useCases.split("\n");
+  const useCasesArray = model.useCases?.split("\n");
 
   const copyToClipboard = () => {
     if ("clipboard" in navigator) {
