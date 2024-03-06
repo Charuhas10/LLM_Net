@@ -15,8 +15,8 @@ export default function Navbar() {
   }, [resolvedTheme]);
 
   return (
-    <nav className="top-0 bg-[#fafafa] shadow dark:shadow-neutral-700 dark:bg-neutral-900">
-      <div className="max-w-7xl mx-auto px-2 sm:px-5 lg:px-2">
+    <nav className="top-0 bg-[#fafafa] shadow dark:shadow-neutral-700 dark:bg-neutral-900 mx-0">
+      <div className="max-w-[1440px] mx-auto px-2 sm:px-5 lg:px-2">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
             <Link href="/">

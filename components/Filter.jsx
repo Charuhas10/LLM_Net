@@ -17,8 +17,8 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
   const router = useRouter();
 
   return (
-    <div className="flex sm:flex-col sm:gap-4 filter-md:flex-row filter-md:gap-0 justify-between items-center mb-6 mx-[65px]">
-      <div className="flex sm:flex-col sm:gap-4 filter-md:flex-row filter-md:gap-0 items-center space-x-4">
+    <div className="flex sm:flex-col sm:gap-4 lg:flex-row lg:gap-0 justify-between items-center mb-6 mx-[65px]">
+      <div className="flex sm:flex-col sm:gap-4 lg:flex-row lg:gap-0 items-center space-x-4">
         <h1 className="lg:text-lg sm:text-2xl dark:text-gray-100">
           MODELS:{" "}
           <span className="lg:text-lg sm:text-2xl text-[#9ca3af] dark:text-gray-400">
