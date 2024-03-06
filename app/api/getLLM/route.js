@@ -6,9 +6,11 @@ export async function GET(req) {
   try {
     await connectMongoDB();
     const LLMmodels = await Model.find({});
-    return NextResponse.json(LLMmodels);
+    return NextResponse.json(LLMmodels, {});
   } catch (e) {
     console.log(e);
     return NextResponse.error(e);
   }
 }
+
+export const dynamic = "force-dynamic";

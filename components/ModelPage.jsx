@@ -26,6 +26,7 @@ export default function ModelPage({ id }) {
     }
   };
 
+  if (model.useCases === undefined) model.useCases = "Currently No Use Cases Added";
   const useCasesArray = model.useCases.split("\n");
 
   const copyToClipboard = () => {
