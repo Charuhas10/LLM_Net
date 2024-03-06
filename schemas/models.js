@@ -8,7 +8,7 @@ const modelSchema = new Schema({
   description: { type: String, required: true },
   tags: { type: [String], required: true },
   featured: { type: Boolean, required: true, default: false },
-  icon: { type: String },
+  icon: { type: String, default: "/snowflake.png" },
   code: {
     type: String,
     required: true,

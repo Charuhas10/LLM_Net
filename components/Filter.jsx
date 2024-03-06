@@ -40,16 +40,7 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
         </div>
       </div>
 
-      <div className="flex space-x-2">
-        <button
-          onClick={() => {
-            router.push("/new");
-          }}
-          className="md:text-sm sm:text-xs px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100"
-        >
-          Add Model
-        </button>
-
+      <div className="flex space-x-2 sm:relative">
         <button
           className="md:text-sm sm:text-xs px-4 py-2 border border-gray-300 rounded-[20px] bg-white dark:bg-neutral-700 dark:border-neutral-800 dark:text-gray-100 flex items-center"
           onClick={() => setShowDropdown(!showDropdown)}
@@ -57,7 +48,7 @@ function Filter({ searchTerm, handleSearchChange, models, onSortChange }) {
           Sort: {sortOption} <AiOutlineCaretDown className="ml-2" />
         </button>
         {showDropdown && (
-          <div className="absolute right-[55px] mt-[2.7rem] px-4 py-2  rounded-[15px] bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-800 shadow-xl z-50">
+          <div className="absolute sm:right-0 mt-[2.7rem] px-4 py-2  rounded-[15px] bg-white dark:bg-neutral-700 border border-gray-300 dark:border-neutral-800 shadow-xl z-50">
             <Link
               href="#"
               className="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-neutral-600"

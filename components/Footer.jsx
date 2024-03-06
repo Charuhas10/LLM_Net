@@ -12,7 +12,7 @@ function Footer() {
       </div>
       <div className="flex space-x-4">
         <Link
-          href="https://www.github.com/charuhas10"
+          href="https://github.com/Charuhas10/LLM_Net"
           target="_blank"
           rel="noopener noreferrer"
         >
