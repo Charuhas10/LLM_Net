@@ -22,9 +22,7 @@ export default function RootLayout({ children }) {
             <div>
               <SpeedInsights />
               <Navbar />
-              <Suspense fallback={<div>Loading Feed...</div>}>
               {children}
-              </Suspense>
             </div>
           </ModelProvider>
         </Providers>
