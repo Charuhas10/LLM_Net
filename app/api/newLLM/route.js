@@ -1,21 +1,49 @@
-import NewModel from "@/app/new/page";
 import { connectMongoDB } from "@/lib/mongodb";
 import Model from "@/schemas/models";
 import { NextResponse } from "next/server";
+import { validationResult, body } from "express-validator";
+import sanitize from "mongo-sanitize";
+
+const validateModel = [
+  body("type").trim().escape(),
+  body("title").trim().escape(),
+  body("tags").isArray().withMessage("Tags must be an array"),
+  body("description").trim().escape(),
+  body("useCases").trim().escape(),
+  body("code").trim().escape(),
+];
 
 export async function POST(req) {
   try {
     await connectMongoDB();
-    const { type, title, tags, description, useCases, code } = await req.json();
-    console.log(type, title, tags, description, useCases, code);
-    console.log(tags);
+
+    const cleanReq = sanitize(await req.json());
+
+    // Validate input
+    await validateModel.forEach((validation) => validation.run(req));
+
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return NextResponse.json({ errors: errors.array() }, { status: 400 });
+    }
+
+    console.log(
+      cleanReq.type,
+      cleanReq.title,
+      cleanReq.tags,
+      cleanReq.description,
+      cleanReq.useCases,
+      cleanReq.code
+    );
+    console.log(cleanReq.tags);
+
     const model = {
-      type,
-      title,
-      tags,
-      description,
-      useCases,
-      code,
+      type: cleanReq.type,
+      title: cleanReq.title,
+      tags: cleanReq.tags,
+      description: cleanReq.description,
+      useCases: cleanReq.useCases,
+      code: cleanReq.code,
     };
 
     const newModel = await Model.create(model);

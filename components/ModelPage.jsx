@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
-import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
+import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; 
 import { useRouter } from "next/navigation";
 
 export default function ModelPage({ id }) {
@@ -51,7 +51,6 @@ export default function ModelPage({ id }) {
 
   return (
     <div className="mt-4 p-4 mx-[60px] dark:text-white ">
-      {/* First line with icon and title */}
       <div className="modelTags:block md:flex md:flex-col">
         <div className="flex items-center space-x-2 mb-2">
           <Image src={model.icon} alt="Google Logo" width={24} height={24} />
@@ -60,11 +59,8 @@ export default function ModelPage({ id }) {
           </h2>
         </div>
 
-        {/* Second line with tags, interaction buttons, and "Use Model" button */}
         <div className="flex justify-between items-center">
-          {/* Tags and interaction buttons */}
           <div className="flex-grow flex items-center space-x-2">
-            {/* Tags */}
             {model.tags.map((tag) => (
               <span
                 key={tag}
@@ -74,7 +70,6 @@ export default function ModelPage({ id }) {
               </span>
             ))}
 
-            {/* Download and like buttons */}
             <div className="flex gap-1 items-center space-x-1 text-gray-500 dark:text-gray-300">
               <AiOutlineDownload className="h-5 w-5" />
               <span>{model.downloads}</span>
@@ -93,7 +88,6 @@ export default function ModelPage({ id }) {
             </div>
           </div>
 
-          {/* "Use Model" button */}
           <button
             onClick={() => {
               router.replace("/useModel");

@@ -1,18 +1,9 @@
 import Image from "next/image";
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Ensure correct import path
+import { useRouter } from "next/navigation";
 import { AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
 
-export default function ModelCard({
-  id,
-  type,
-  downloads,
-  likes,
-  title,
-  featured,
-  description,
-  icon,
-}) {
+export default function ModelCard({ id, type, downloads, likes, title, icon }) {
   const [isHovered, setIsHovered] = useState(false);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(likes);

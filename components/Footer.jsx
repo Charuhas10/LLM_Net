@@ -7,7 +7,7 @@ function Footer() {
     <footer className="flex items-center justify-between p-4 bg-[#fafafa] text-center shadow dark:shadow-neutral-700 dark:bg-neutral-900 mt-auto">
       <div className="flex items-center">
         <p className="text-sm text-black dark:text-white">
-          &copy; 2020 Charuhas Reddy Balam
+          &copy; 2024 Charuhas Reddy Balam
         </p>
       </div>
       <div className="flex space-x-4">

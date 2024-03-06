@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import { Providers } from "./providers";
 import { ModelProvider } from "@/lib/context";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Suspense } from "react";
+import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
               <SpeedInsights />
               <Navbar />
               {children}
+              <Footer />
             </div>
           </ModelProvider>
         </Providers>

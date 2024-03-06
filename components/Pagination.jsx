@@ -12,7 +12,7 @@ function Pagination({ totalPage, currentPage, paginate }) {
   }
 
   return (
-    <nav className="flex justify-center items-center mt-8 sm:space-x-2 md:space-x-4 mx-[10px]">
+    <nav className="flex justify-center items-center my-8 sm:space-x-2 md:space-x-4 mx-[10px]">
       <button
         className={`w-10 h-10 flex justify-center items-center rounded-lg border border-gray-300 dark:border-gray-600 text-base font-medium cursor-pointer transition-colors hover:border-gray-400 dark:hover:bg-gray-700 focus:outline-none focus:ring focus:ring-blue-300 ${
           currentPage === 1

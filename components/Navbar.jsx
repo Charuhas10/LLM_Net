@@ -11,7 +11,7 @@ export default function Navbar() {
   const [logoSrc, setLogoSrc] = useState("/logo.png");
 
   useEffect(() => {
-    setLogoSrc(resolvedTheme === "dark" ? "/logo_white.png" : "/logo.png");
+    setLogoSrc(resolvedTheme === "dark" ? "/logo_white_2.png" : "/logo_2.png");
   }, [resolvedTheme]);
 
   return (
@@ -26,7 +26,7 @@ export default function Navbar() {
 
           <div className=" flex-1 flex items-center justify-end sm:items-stretch">
             <div className="hidden sm:block sm:ml-4">
-              <div className="flex gap-3">
+              <div className="flex gap-3 items-center">
                 <Link
                   className=" text-gray-500 dark:text-white  px-2 py-1 rounded-md md:text-sm sm:text-xs font-medium"
                   href="/"
