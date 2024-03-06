@@ -60,7 +60,7 @@ export default function ModelCard({
           <AiOutlineDownload className="h-4 w-4 text-[#6b728d] dark:text-gray-300" />
           <span className="ml-1">{downloads}</span>
         </div>
-        <p className="text-sm text-gray-500 dark:text-gray-400 truncate">
+        <p className="text-sm text-gray-600 dark:text-gray-400 truncate">
           {type}
         </p>
 
