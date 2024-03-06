@@ -90,7 +90,7 @@ export default function ModelPage({ id }) {
             onClick={() => {
               router.replace("/useModel");
             }}
-            className="bg-blue-500 hover:bg-blue-700 text-white lg:text-base sm:text-xs py-2 px-4 rounded transition duration-300"
+            className="bg-blue-500 hover:bg-blue-700 dark:bg-neutral-600 hover:dark:bg-neutral-700 text-white lg:text-base sm:text-xs py-2 px-4 rounded transition duration-300"
           >
             Use Model
           </button>
@@ -115,12 +115,12 @@ export default function ModelPage({ id }) {
             <h1 className=" font-bold ">CODE: </h1>
             <button
               onClick={copyToClipboard}
-              className="text-sm bg-blue-500 hover:bg-blue-700 text-white py-1 px-3 rounded transition duration-300"
+              className="text-sm bg-blue-500 hover:bg-blue-700 dark:bg-neutral-600 hover:dark:bg-neutral-700 text-white py-1 px-3 rounded transition duration-300"
             >
               Copy
             </button>
           </div>
-          <pre className="bg-gray-200 dark:bg-gray-700 p-4 rounded-lg overflow-auto sm:text-xs md:text-sm">
+          <pre className="bg-gray-200 dark:bg-gray-600 p-4 rounded-lg overflow-auto sm:text-xs md:text-sm">
             <code>{model.code}</code>
           </pre>
         </div>

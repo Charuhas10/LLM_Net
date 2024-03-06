@@ -72,7 +72,7 @@ export default function AddModelForm() {
             value={model.title}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
         <div>
@@ -89,7 +89,7 @@ export default function AddModelForm() {
             value={model.type}
             onChange={handleChange}
             required
-            className="mt-1 block w-full bg-[#e0e0e0]  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full bg-[#e0e0e0] dark:bg-neutral-700  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
         <div>
@@ -106,7 +106,7 @@ export default function AddModelForm() {
             value={model.tags.join(",")}
             onChange={handleTagChange}
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           />
         </div>
         <div>
@@ -123,7 +123,7 @@ export default function AddModelForm() {
             onChange={handleChange}
             rows="4"
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
           ></textarea>
         </div>
         <button
