@@ -3,16 +3,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
-import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineDownload } from "react-icons/ai";
 import { useRouter } from "next/navigation";
 import Like from "./Like";
 
 export default function ModelPage({ id }) {
   const { models, refetch } = useContext(ModelContext);
-  refetch();
-  const model = models.find((model) => model._id === id);
-
   const router = useRouter();
+
+  useEffect(() => {
+    refetch();
+  }, [refetch, id]);
+
+  const model = models.find((model) => model._id === id);
 
   const useCasesArray = model.useCases.split("\n");
 
