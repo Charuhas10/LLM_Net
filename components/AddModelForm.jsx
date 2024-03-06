@@ -69,10 +69,11 @@ export default function AddModelForm() {
             type="text"
             name="title"
             id="title"
+            placeholder="Name of your LLM"
             value={model.title}
             onChange={handleChange}
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3"
           />
         </div>
         <div>
@@ -86,10 +87,11 @@ export default function AddModelForm() {
             type="text"
             name="type"
             id="type"
+            placeholder="Text-to-Text, Text-to-Image ..."
             value={model.type}
             onChange={handleChange}
             required
-            className="mt-1 block w-full bg-[#e0e0e0] dark:bg-neutral-700  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full bg-[#e0e0e0] dark:bg-neutral-700  rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3"
           />
         </div>
         <div>
@@ -103,10 +105,11 @@ export default function AddModelForm() {
             type="text"
             name="tags"
             id="tags"
+            placeholder="Text Generation, Transformers..."
             value={model.tags.join(",")}
             onChange={handleTagChange}
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm py-2 px-3 "
           />
         </div>
         <div>
@@ -121,9 +124,10 @@ export default function AddModelForm() {
             id="description"
             value={model.description}
             onChange={handleChange}
+            placeholder="Describe your LLM model here..."
             rows="4"
             required
-            className="mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+            className="py-2 mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 "
           ></textarea>
         </div>
         <button
