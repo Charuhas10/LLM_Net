@@ -10,7 +10,7 @@ export default function ModelPage({ id }) {
   const model = models.find((model) => model._id === id);
 
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(model.likes); // Initialize with model.likes or 0 if model is undefined
+  const [likesCount, setLikesCount] = useState(model?.likes || 0); // Initialize with model.likes or 0 if model is undefined
 
   if (!model) {
     return <div>Model not found</div>;
@@ -75,7 +75,11 @@ export default function ModelPage({ id }) {
       </div>
       <div className="flex mt-8">
         <div className="w-1/2">{model.description}</div>
-        <div className="w-1/2">CODE</div>
+        <div className="w-1/2">
+          <pre className="bg-gray-100 p-4 rounded-lg">
+            <code>{model.code}</code>
+          </pre>
+        </div>
       </div>
     </div>
   );

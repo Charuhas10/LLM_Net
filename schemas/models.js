@@ -9,6 +9,11 @@ const modelSchema = new Schema({
   tags: { type: [String], required: true },
   featured: { type: Boolean, required: true, default: false },
   icon: { type: String },
+  code: {
+    type: String,
+    required: true,
+    default: "CURRENTLY THIS MODEL DOES NOT HAVE A CODE",
+  },
 });
 
 const Model = models.Model || mongoose.model("Model", modelSchema);
