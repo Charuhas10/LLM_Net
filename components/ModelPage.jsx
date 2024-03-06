@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ModelContext } from "@/lib/context";
 import Image from "next/image";
 import { AiFillHeart, AiOutlineDownload, AiOutlineHeart } from "react-icons/ai"; // Changed to AiOutlineHeart for the like icon
@@ -13,7 +13,13 @@ export default function ModelPage({ id }) {
   const router = useRouter();
 
   const [liked, setLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(model?.likes || 0); // Initialize with model.likes or 0 if model is undefined
+  const [likesCount, setLikesCount] = useState(model?.likes);
+
+  useEffect(() => {
+    if (model?.likes) {
+      setLikesCount(model.likes);
+    }
+  }, [model]);
 
   if (!model) {
     return <div>Model not found</div>;
@@ -22,11 +28,12 @@ export default function ModelPage({ id }) {
   const toggleLike = () => {
     if (model) {
       setLiked(!liked);
-      setLikesCount(liked ? likesCount - 1 : likesCount + 1); // Decrease if already liked, else increase
+      setLikesCount(liked ? likesCount - 1 : likesCount + 1); 
     }
   };
 
-  if (model.useCases === undefined) model.useCases = "Currently No Use Cases Added";
+  if (model.useCases === undefined)
+    model.useCases = "Currently No Use Cases Added";
   const useCasesArray = model.useCases.split("\n");
 
   const copyToClipboard = () => {
@@ -68,9 +75,9 @@ export default function ModelPage({ id }) {
             ))}
 
             {/* Download and like buttons */}
-            <div className="flex items-center space-x-1 text-gray-500 dark:text-gray-300">
+            <div className="flex gap-1 items-center space-x-1 text-gray-500 dark:text-gray-300">
               <AiOutlineDownload className="h-5 w-5" />
-              <span>{model.views}</span>
+              <span>{model.downloads}</span>
               {liked ? (
                 <AiFillHeart
                   className="h-5 w-5 text-red-500 cursor-pointer"

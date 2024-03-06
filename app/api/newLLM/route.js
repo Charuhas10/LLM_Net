@@ -1,3 +1,4 @@
+import NewModel from "@/app/new/page";
 import { connectMongoDB } from "@/lib/mongodb";
 import Model from "@/schemas/models";
 import { NextResponse } from "next/server";
@@ -14,9 +15,10 @@ export async function POST(req) {
       tags,
       description,
     };
-    await Model.create(model);
+
+    const newModel = await Model.create(model);
     return NextResponse.json(
-      { message: "Model added successfully" },
+      { message: "Model added successfully", id: newModel._id },
       { status: 200 }
     );
   } catch (error) {

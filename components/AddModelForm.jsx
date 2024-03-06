@@ -39,10 +39,13 @@ export default function AddModelForm() {
         },
         body: JSON.stringify(model),
       });
+
+      const data = await res.json();
+
       if (res.ok) {
         alert("Model added successfully");
         refetch();
-        router.replace("/models");
+        router.replace(`/models/${data.id}`);
       } else {
         alert("Failed to add model");
       }
