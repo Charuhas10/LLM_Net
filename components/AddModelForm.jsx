@@ -12,6 +12,8 @@ export default function AddModelForm() {
     title: "",
     tags: [],
     description: "",
+    useCases: "",
+    code: "",
   });
 
   const handleChange = (e) => {
@@ -131,6 +133,42 @@ export default function AddModelForm() {
             value={model.description}
             onChange={handleChange}
             placeholder="Describe your LLM model here..."
+            rows="4"
+            required
+            className="py-2 mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 "
+          ></textarea>
+        </div>
+        <div>
+          <label
+            htmlFor="useCases"
+            className="block text-lg font-medium text-gray-700 dark:text-white"
+          >
+            Use Cases
+          </label>
+          <textarea
+            name="useCases"
+            id="useCases"
+            value={model.useCases}
+            onChange={handleChange}
+            placeholder="Give use cases of your LLM (FullStop separated)"
+            rows="4"
+            required
+            className="py-2 mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 "
+          ></textarea>
+        </div>
+        <div>
+          <label
+            htmlFor="code"
+            className="block text-lg font-medium text-gray-700 dark:text-white"
+          >
+            Code
+          </label>
+          <textarea
+            name="code"
+            id="code"
+            value={model.code}
+            onChange={handleChange}
+            placeholder="Add code of your LLM model here (Well Formatted)"
             rows="4"
             required
             className="py-2 mt-1 block w-full rounded-md bg-[#e0e0e0] dark:bg-neutral-700 border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-3 "

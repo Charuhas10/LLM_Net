@@ -6,17 +6,20 @@ import { NextResponse } from "next/server";
 export async function POST(req) {
   try {
     await connectMongoDB();
-    const { type, title, tags, description } = await req.json();
-    console.log(type, title, tags, description);
+    const { type, title, tags, description, useCases, code } = await req.json();
+    console.log(type, title, tags, description, useCases, code);
     console.log(tags);
     const model = {
       type,
       title,
       tags,
       description,
+      useCases,
+      code,
     };
 
     const newModel = await Model.create(model);
+
     return NextResponse.json(
       { message: "Model added successfully", id: newModel._id },
       { status: 200 }
