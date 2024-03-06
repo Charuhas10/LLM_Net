@@ -8,7 +8,7 @@ export async function GET(req) {
     const LLMmodels = await Model.find({});
     return NextResponse.json(LLMmodels, {});
   } catch (e) {
-    console.log(e);
+    console.error(e);
     return NextResponse.error(e);
   }
 }

@@ -18,7 +18,6 @@ export default function ModelCard({ id, type, downloads, likes, title, icon }) {
     } else {
       setLikeCount(likeCount - 1);
     }
-    console.log("Like toggled");
   };
 
   return (
@@ -27,7 +26,6 @@ export default function ModelCard({ id, type, downloads, likes, title, icon }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
-        console.log("Clicked", { id });
         router.push(`/models/${id}`);
       }}
     >

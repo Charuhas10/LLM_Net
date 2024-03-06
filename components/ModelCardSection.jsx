@@ -77,7 +77,6 @@ export default function ModelCardSection() {
     model.title.toLowerCase().includes(filterQuery)
   );
 
-  console.log("current", currentModels);
 
   // Function to handle page change
   const paginate = (pageNumber) => setCurrentPage(pageNumber);

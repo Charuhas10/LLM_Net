@@ -27,16 +27,6 @@ export async function POST(req) {
       return NextResponse.json({ errors: errors.array() }, { status: 400 });
     }
 
-    console.log(
-      cleanReq.type,
-      cleanReq.title,
-      cleanReq.tags,
-      cleanReq.description,
-      cleanReq.useCases,
-      cleanReq.code
-    );
-    console.log(cleanReq.tags);
-
     const model = {
       type: cleanReq.type,
       title: cleanReq.title,
